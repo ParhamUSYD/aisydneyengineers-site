@@ -1,18 +1,41 @@
-# React + Vite
+# AI Sydney Engineers Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Business-facing React and Vite website for AI Sydney Engineers, using selected public engineering portfolio material and project figures supplied in the workspace.
 
-Currently, two official plugins are available:
+## Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- React 19
+- Vite 8
+- Tailwind CSS 4
+- Lucide icons
 
-## React Compiler
+## Development
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```bash
+npm run dev
+```
 
-## Expanding the ESLint configuration
+## Production build
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+npm run build
+```
 
-# Add a tiny commit to trigger the CI and publish the package to npm
+## Content editing
+
+Most site content now lives in `src/content/siteContent.js`.
+
+Update this file to:
+
+- add or remove projects
+- swap project figures
+- expand team member biographies
+- revise services, FAQs, and proof sections
+
+Project images live in `public/portfolio`.
+
+## Deployment
+
+The repository includes a GitHub Pages workflow in `.github/workflows/deploy.yaml`.
+
+`vite.config.js` uses `base: './'` so the built site is safer to deploy on GitHub Pages project paths as well as simple static hosting.
