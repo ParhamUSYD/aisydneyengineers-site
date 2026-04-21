@@ -68,7 +68,7 @@ export const teamMembers = [
   },
   {
     name: "Mike Mirjavadi",
-    role: "Mechanical Design & Product Development Engineer",
+    role: "Former Mechanical Design & Product Development Engineer",
     image: "/images/team/mike-mirjavadi.jpg",
     description:
       "Specialized in mechanical design, CAD development, GD&T, manufacturable product design, and validation-driven engineering solutions.",
