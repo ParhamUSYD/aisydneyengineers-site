@@ -292,36 +292,50 @@ export default function App() {
             <div className="grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
               <SectionIntro
                 eyebrow="About us"
-                title="A small engineering team with a practical, client-facing structure"
-                description="This site now reads as a business-ready engineering presence rather than a one-off portfolio dump. Mike Mirjavadi and Liam Vatankhah are presented as the people behind the practice, with room to expand public bios and project history over time."
+                title="A multidisciplinary engineering team built for practical delivery"
+                description="We bring together design, analysis, and development capability to help clients solve engineering problems with clarity, technical depth, and execution-focused support."
               />
 
               <div className="grid gap-5 md:grid-cols-2">
                 {teamMembers.map((member) => (
                   <article
                     key={member.name}
-                    className="rounded-[30px] border border-slate-200 bg-white p-7 shadow-[0_20px_60px_-42px_rgba(15,23,42,0.18)]"
+                    className="overflow-hidden rounded-[30px] border border-slate-200 bg-white shadow-[0_20px_60px_-42px_rgba(15,23,42,0.18)]"
                   >
-                    <div className="flex items-center justify-between gap-4">
-                      <div>
-                        <div className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
-                          {member.kicker}
+                    {member.image ? (
+                      <img
+                        src={member.image}
+                        alt={`Portrait of ${member.name}`}
+                        className="h-72 w-full bg-stone-100 object-contain object-top p-4"
+                        loading="lazy"
+                      />
+                    ) : null}
+                    <div className="p-7">
+                      <div className="flex items-center justify-between gap-4">
+                        <div>
+                          {member.kicker ? (
+                            <div className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
+                              {member.kicker}
+                            </div>
+                          ) : null}
+                          <h3 className="mt-3 text-2xl font-semibold text-slate-950">{member.name}</h3>
                         </div>
-                        <h3 className="mt-3 text-2xl font-semibold text-slate-950">{member.name}</h3>
+                        <div className="rounded-2xl border border-slate-200 bg-stone-50 px-3 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-slate-600">
+                          {member.role ?? member.label}
+                        </div>
                       </div>
-                      <div className="rounded-2xl border border-slate-200 bg-stone-50 px-3 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-slate-600">
-                        {member.label}
-                      </div>
+                      <p className="mt-5 text-sm leading-7 text-slate-600">{member.description}</p>
+                      {Array.isArray(member.points) && member.points.length > 0 ? (
+                        <ul className="mt-6 grid gap-3 text-sm leading-6 text-slate-700">
+                          {member.points.map((point) => (
+                            <li key={point} className="flex items-start gap-3">
+                              <span className="mt-2 h-2 w-2 rounded-full bg-amber-500" />
+                              <span>{point}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      ) : null}
                     </div>
-                    <p className="mt-5 text-sm leading-7 text-slate-600">{member.description}</p>
-                    <ul className="mt-6 grid gap-3 text-sm leading-6 text-slate-700">
-                      {member.points.map((point) => (
-                        <li key={point} className="flex items-start gap-3">
-                          <span className="mt-2 h-2 w-2 rounded-full bg-amber-500" />
-                          <span>{point}</span>
-                        </li>
-                      ))}
-                    </ul>
                   </article>
                 ))}
               </div>
@@ -470,27 +484,52 @@ export default function App() {
           </div>
         </section>
 
-        <section id="process" className="section-slate">
-          <div className="mx-auto max-w-7xl px-5 py-20 text-white sm:px-6 lg:px-8">
-            <SectionIntro
-              eyebrow="How we work"
-              title="A straightforward delivery process suited to engineering teams"
-              description="The workflow stays close to how the project evidence reads in the portfolio: clarify the problem, engineer the solution, verify where needed, and deliver documentation that can be acted on."
-            />
+        <section id="process" className="mx-auto max-w-7xl px-5 py-20 sm:px-6 lg:px-8">
+          <div className="process-shell overflow-hidden rounded-[40px] border border-slate-200/90 px-6 py-8 sm:px-8 sm:py-10 lg:px-10 lg:py-12">
+            <div className="relative">
+              <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
+                <SectionIntro
+                  eyebrow="How we work"
+                  title="A delivery process built for practical engineering outcomes"
+                  description="We work through each project with a focus on scope clarity, disciplined design decisions, verification where needed, and documentation that supports real execution."
+                />
 
-            <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-              {processSteps.map((step, index) => (
-                <article
-                  key={step.title}
-                  className="rounded-[28px] border border-white/10 bg-white/5 p-6 shadow-[0_25px_80px_-52px_rgba(2,6,23,0.85)]"
-                >
-                  <div className="text-sm font-semibold uppercase tracking-[0.18em] text-amber-300">
-                    Step {index + 1}
+                <div className="grid gap-4 sm:grid-cols-2">
+                  <div className="rounded-[28px] border border-white/70 bg-white/80 p-5 shadow-[0_22px_60px_-44px_rgba(15,23,42,0.24)] backdrop-blur-sm">
+                    <div className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
+                      Delivery emphasis
+                    </div>
+                    <p className="mt-3 text-sm leading-7 text-slate-600">
+                      Clear scope, buildable solutions, technical rigor, and documentation that supports fabrication, testing, and review.
+                    </p>
                   </div>
-                  <h3 className="mt-4 text-xl font-semibold text-white">{step.title}</h3>
-                  <p className="mt-3 text-sm leading-7 text-slate-300">{step.description}</p>
-                </article>
-              ))}
+                  <div className="rounded-[28px] border border-white/70 bg-white/80 p-5 shadow-[0_22px_60px_-44px_rgba(15,23,42,0.24)] backdrop-blur-sm">
+                    <div className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
+                      Best fit
+                    </div>
+                    <p className="mt-3 text-sm leading-7 text-slate-600">
+                      Teams that value practicality, repeatability, and sound engineering judgment over unnecessary complexity.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+                {processSteps.map((step, index) => (
+                  <article key={step.title} className="process-card rounded-[30px] p-6">
+                    <div className="flex items-center gap-3">
+                      <div className="process-step-chip">0{index + 1}</div>
+                      <div className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
+                        Step {index + 1}
+                      </div>
+                    </div>
+                    <h3 className="mt-6 text-xl font-semibold tracking-tight text-slate-950">
+                      {step.title}
+                    </h3>
+                    <p className="mt-3 text-sm leading-7 text-slate-600">{step.description}</p>
+                  </article>
+                ))}
+              </div>
             </div>
           </div>
         </section>
@@ -515,7 +554,7 @@ export default function App() {
           </div>
         </section>
 
-        <section id="contact" className="mx-auto max-w-7xl px-5 pb-24 pt-4 sm:px-6 lg:px-8">
+        {/* <section id="contact" className="mx-auto max-w-7xl px-5 pb-24 pt-4 sm:px-6 lg:px-8">
           <div className="overflow-hidden rounded-[40px] border border-slate-200 bg-white px-6 py-8 shadow-[0_25px_80px_-52px_rgba(15,23,42,0.3)] sm:px-8 sm:py-10 lg:px-12 lg:py-12">
             <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
               <div>
@@ -548,7 +587,7 @@ export default function App() {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
       </main>
 
       <footer className="border-t border-slate-200 bg-white">
@@ -556,8 +595,6 @@ export default function App() {
           <div>AI Sydney Engineers</div>
           <div className="flex flex-wrap gap-3">
             <span>Selected public engineering work</span>
-            <span>•</span>
-            <span>Mike Mirjavadi and Liam Vatankhah</span>
           </div>
         </div>
       </footer>

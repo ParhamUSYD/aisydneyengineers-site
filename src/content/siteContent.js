@@ -59,29 +59,33 @@ export const services = [
 ];
 
 export const teamMembers = [
-  {
-    kicker: "Core team",
-    label: "Engineering lead",
-    name: "Mike Mirjavadi",
+{
+    name: "Hamid Kaamrava",
+    role: "Senior Engineer",
+    image: "/images/team/hamid-kaamrava.jpg",
     description:
-      "The supplied portfolio material shows hands-on work in mechanical design, product development, fixture design, testing systems, CAD documentation, and standards-aware engineering delivery.",
-    points: [
-      "Selected public work spans industrial cooling equipment, custom testing systems, medical prototyping support, EV fixtures, and synchronised measurement setups.",
-      "The portfolio consistently references CAD, GD&T, DFMA, DFMEA, V&V, and technical documentation rather than generic presentation language.",
-      "Supporting material also points to detailed drawings, SolidWorks instruction, and standards-aware design outputs.",
-    ],
+      "An experienced senior engineer providing technical leadership, project guidance, and strategic engineering insight across multidisciplinary work.",
   },
   {
-    kicker: "Core team",
-    label: "Team profile",
-    name: "Liam Vatankhah",
+    name: "Mike Mirjavadi",
+    role: "Mechanical Design & Product Development Engineer",
+    image: "/images/team/mike-mirjavadi.jpg",
     description:
-      "Liam Vatankhah is now included in the business-facing team presentation so the site can speak about the people behind the practice rather than only one portfolio owner.",
-    points: [
-      "The site structure is ready for Liam's fuller public biography, project history, qualifications, and links to be added cleanly once confirmed.",
-      "This keeps the current website honest while still presenting a real team identity for client-facing use.",
-      "Future profile updates only require content edits in one data file rather than layout changes across the whole site.",
-    ],
+      "Specialized in mechanical design, CAD development, GD&T, manufacturable product design, and validation-driven engineering solutions.",
+  },
+  {
+    name: "Liam Vatan",
+    role: "CFD, Automation & AI Engineer",
+    image: "/images/team/liam-vatan.jpg",
+    description:
+      "Focused on computational engineering, simulation, automation, and AI-enabled technical workflows for advanced engineering applications.",
+  },
+  {
+    name: "Jack Wilson",
+    role: "Mechanical Design, 3D Printing & Control Systems Engineer",
+    image: "/images/team/jack-wilson.jpg",
+    description:
+      "Experienced in mechanical design, rapid prototyping, 3D printing, and control-based engineering systems for practical product development.",
   },
 ];
 
